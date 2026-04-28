@@ -1,0 +1,14 @@
+# Agent orchestration
+langgraph>=0.2.0
+
+# LLM provider
+anthropic>=0.40.0
+
+# Web search for the Researcher agent
+tavily-python>=0.3.0
+
+# UI
+streamlit>=1.32.0
+
+# Utilities
+python-dotenv>=1.0.0
