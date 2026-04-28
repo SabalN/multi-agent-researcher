@@ -1,0 +1,61 @@
+$ python main.py --query "What are the latest developments in quantum error correction in 2025?"
+
+================================================================================
+  Multi-Agent Research Pipeline  |  LangGraph + Claude + Tavily
+================================================================================
+[2025-04-28 10:14:02] INFO  | Loading environment variables from .env
+[2025-04-28 10:14:02] INFO  | ANTHROPIC_API_KEY ........ loaded (sk-ant-***...n4Qf)
+[2025-04-28 10:14:02] INFO  | TAVILY_API_KEY ........... loaded (tvly-***...8x2K)
+[2025-04-28 10:14:02] INFO  | Building state graph......
+[2025-04-28 10:14:02] INFO  |   + node added: researcher
+[2025-04-28 10:14:02] INFO  |   + node added: analyst
+[2025-04-28 10:14:02] INFO  |   + node added: writer
+[2025-04-28 10:14:02] INFO  |   + edges: researcher -> analyst -> writer -> END
+[2025-04-28 10:14:02] INFO  | Graph compiled successfully (3 nodes, 3 edges)
+
+--------------------------------------------------------------------------------
+  STAGE 1/3  |  RESEARCHER AGENT
+--------------------------------------------------------------------------------
+[2025-04-28 10:14:03] INFO  | Researcher: received query
+[2025-04-28 10:14:03] INFO  | Researcher: planning search strategy with claude-haiku-4-5
+[2025-04-28 10:14:05] INFO  | Researcher: generated 3 sub-queries
+                              1. "quantum error correction breakthroughs 2025"
+                              2. "surface code logical qubit recent results"
+                              3. "Google Willow quantum chip error correction"
+[2025-04-28 10:14:05] INFO  | Researcher: calling tavily.search() x3
+[2025-04-28 10:14:08] INFO  | Researcher: retrieved 14 sources (avg score 0.81)
+[2025-04-28 10:14:08] INFO  | Researcher: deduplicated -> 11 unique sources
+[2025-04-28 10:14:08] INFO  | Researcher: state updated -> sources[11], notes[~2.4k tokens]
+[2025-04-28 10:14:08] OK    | Researcher: handoff to analyst
+
+--------------------------------------------------------------------------------
+  STAGE 2/3  |  ANALYST AGENT
+--------------------------------------------------------------------------------
+[2025-04-28 10:14:08] INFO  | Analyst: loaded 11 sources from state
+[2025-04-28 10:14:09] INFO  | Analyst: invoking claude-sonnet-4-5 for synthesis
+[2025-04-28 10:14:14] INFO  | Analyst: extracted 6 key findings
+[2025-04-28 10:14:14] INFO  | Analyst: cross-referenced claims across >=2 sources
+[2025-04-28 10:14:14] WARN  | Analyst: 1 claim flagged (single-source) -> dropped
+[2025-04-28 10:14:14] INFO  | Analyst: identified 2 conflicting figures -> noted
+[2025-04-28 10:14:14] INFO  | Analyst: state updated -> findings[5], conflicts[2]
+[2025-04-28 10:14:14] OK    | Analyst: handoff to writer
+
+--------------------------------------------------------------------------------
+  STAGE 3/3  |  WRITER AGENT
+--------------------------------------------------------------------------------
+[2025-04-28 10:14:14] INFO  | Writer: composing final report
+[2025-04-28 10:14:15] INFO  | Writer: invoking claude-sonnet-4-5
+[2025-04-28 10:14:21] INFO  | Writer: draft generated (842 words)
+[2025-04-28 10:14:21] INFO  | Writer: inline citations added [1]-[11]
+[2025-04-28 10:14:21] INFO  | Writer: saving to output/report_20250428_101421.md
+[2025-04-28 10:14:21] OK    | Writer: complete
+
+================================================================================
+  PIPELINE COMPLETE
+================================================================================
+  Total runtime    : 19.4s
+  API calls        : 5  (3 Tavily, 2 Anthropic)
+  Tokens used      : 8,431 in / 1,907 out
+  Estimated cost   : $0.041
+  Output file      : output/report_20250428_101421.md
+================================================================================

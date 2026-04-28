@@ -1,0 +1,60 @@
+{
+  "graph_execution_trace": {
+    "run_id": "run_20250428_101402",
+    "query": "What are the latest developments in quantum error correction in 2025?",
+    "started_at": "2025-04-28T10:14:02Z",
+    "finished_at": "2025-04-28T10:14:21Z",
+    "duration_seconds": 19.4,
+    "nodes_executed": ["researcher", "analyst", "writer"],
+
+    "state_after_researcher": {
+      "query": "What are the latest developments in quantum error correction in 2025?",
+      "sub_queries": [
+        "quantum error correction breakthroughs 2025",
+        "surface code logical qubit recent results",
+        "Google Willow quantum chip error correction"
+      ],
+      "sources": [
+        {"id": 1, "url": "https://nature.com/articles/...", "score": 0.94, "title": "Quantum error correction below threshold"},
+        {"id": 2, "url": "https://arxiv.org/abs/2503...", "score": 0.89, "title": "qLDPC codes: a practical pathway"},
+        {"id": 3, "url": "https://research.ibm.com/blog/...", "score": 0.87, "title": "Heron r2 and the path to error-corrected utility"},
+        "... (8 more sources)"
+      ],
+      "raw_notes_token_count": 2418,
+      "next_node": "analyst"
+    },
+
+    "state_after_analyst": {
+      "findings": [
+        {"claim": "Google's Willow result independently replicated", "support_count": 2, "confidence": "high"},
+        {"claim": "IBM Heron r2 demonstrates real-time decoding", "support_count": 2, "confidence": "high"},
+        {"claim": "Neutral-atom platforms closing gap to superconducting", "support_count": 2, "confidence": "medium"},
+        {"claim": "qLDPC codes reduce overhead 5-10x in simulation", "support_count": 2, "confidence": "medium"},
+        {"claim": "Useful FTQC timeline tightened to 2028-2030", "support_count": 2, "confidence": "medium"}
+      ],
+      "dropped_claims": [
+        {"claim": "Microsoft topological qubit roadmap accelerated", "reason": "single-source, low confidence"}
+      ],
+      "conflicts": [
+        {"topic": "Google logical error rate", "values": ["2.9e-3", "1.4e-3"], "resolution": "different code distances"},
+        {"topic": "Physical qubits needed for FTQC", "values": ["~100k", "~1M"], "resolution": "different assumptions"}
+      ],
+      "next_node": "writer"
+    },
+
+    "state_after_writer": {
+      "report_path": "output/report_20250428_101421.md",
+      "word_count": 842,
+      "citations_used": 11,
+      "next_node": "END"
+    },
+
+    "metrics": {
+      "tavily_api_calls": 3,
+      "anthropic_api_calls": 2,
+      "input_tokens": 8431,
+      "output_tokens": 1907,
+      "estimated_cost_usd": 0.041
+    }
+  }
+}
